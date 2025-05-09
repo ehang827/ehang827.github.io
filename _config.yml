@@ -13,7 +13,7 @@ title                    : "Yi-Hang Tsai (Ryan) / PhD Candidate"
 title_separator          : "-"
 name                     : &name "Yi-Hang Tsai (Ryan)"
 description              : &description "PhD Candidate in Information Management at National Sun Yat-sen University (NSYSU), Taiwan. Research interests include information retrieval, recommender systems, and machine learning. Currently working on a project related to the Large Language Model (LLM) and its applications in the field of information retrieval."
-url                      : https://kkfighter2.github.io # the base hostname & protocol for your site e.g. "https://[your GitHub username].github.io" or if you already have some other page hosted on Github then use "https://[your GitHub username].github.io/[Your Repo Name]"
+url                      : https://ehang827.github.io # the base hostname & protocol for your site e.g. "https://[your GitHub username].github.io" or if you already have some other page hosted on Github then use "https://[your GitHub username].github.io/[Your Repo Name]"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "academicpages/academicpages.github.io"
 
