@@ -25,7 +25,7 @@ author:
   avatar           : "profile.png"
   name             : "Yi-Hang Tsai (Ryan)"
   pronouns         : # example: "she/her"  
-  bio              : "PhD Candidate in Information Management at National Sun Yat-sen University (NSYSU), Taiwan. Research interests include information retrieval, recommender systems, and machine learning. Currently working on a project related to the Large Language Model (LLM) and its applications in the field of information retrieval."
+  bio              : "PhD Candidate in Information Management at National Sun Yat-sen University (NSYSU), Taiwan. Research interests include information retrieval, recommender systems, and machine learning."
   location         : "Kaohsiung, Taiwan"
   employer         : "National Sun Yat-sen University (NSYSU)"
   uri              : # URL
@@ -226,7 +226,9 @@ collections:
   talks:
     output: true
     permalink: /:collection/:path/
-
+  projects:
+    output: true
+    permalink: /:collection/:path/
 
 # These settings control how pages and collections are included in the site
 defaults:
@@ -252,6 +254,15 @@ defaults:
   - scope:
       path: ""
       type: teaching
+    values:
+      layout: single
+      author_profile: true
+      share: true
+      comments: true
+  # _projects
+  - scope:
+      path: ""
+      type: projects
     values:
       layout: single
       author_profile: true

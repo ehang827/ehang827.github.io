@@ -327,6 +327,7 @@ def parse_teaching(teaching_dir):
                 "course": front_matter.get('title', ''),
                 "institution": front_matter.get('venue', ''),
                 "date": front_matter.get('date', ''),
+                "end_data": front_matter.get('end_date', ''),
                 "role": front_matter.get('type', ''),
                 "description": front_matter.get('excerpt', '')
             }
@@ -334,6 +335,36 @@ def parse_teaching(teaching_dir):
             teaching.append(teaching_entry)
     
     return teaching
+
+def parse_projects(projects_dir):
+    """Parse projects from the _projects directory."""
+    projects = []
+    
+    if not os.path.exists(projects_dir):
+        return projects
+    
+    for projects_file in sorted(glob.glob(os.path.join(projects_dir, "*.md"))):
+        with open(projects_file, 'r', encoding='utf-8') as file:
+            content = file.read()
+        
+        # Extract front matter
+        front_matter_match = re.match(r'^---\s*(.*?)\s*---', content, re.DOTALL)
+        if front_matter_match:
+            front_matter = yaml.safe_load(front_matter_match.group(1))
+            
+            # Extract projects details
+            projects_entry = {
+                "course": front_matter.get('title', ''),
+                "institution": front_matter.get('venue', ''),
+                "date": front_matter.get('date', ''),
+                "end_data": front_matter.get('end_date', ''),
+                "role": front_matter.get('type', ''),
+                "description": front_matter.get('excerpt', '')
+            }
+            
+            projects.append(projects_entry)
+    
+    return projects
 
 def parse_portfolio(portfolio_dir):
     """Parse portfolio items from the _portfolio directory."""
@@ -394,6 +425,9 @@ def create_cv_json(md_file, config_file, repo_root, output_file):
     
     # Add teaching
     cv_json["teaching"] = parse_teaching(os.path.join(repo_root, "_teaching"))
+
+    # Add projects
+    cv_json["projects"] = parse_projects(os.path.join(repo_root, "_projects"))
     
     # Add portfolio
     cv_json["portfolio"] = parse_portfolio(os.path.join(repo_root, "_portfolio"))
